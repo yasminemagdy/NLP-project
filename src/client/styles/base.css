@@ -9,13 +9,13 @@ body {
   min-height: 100vh;
 }
 
-main {
+body main {
   -webkit-box-flex: 2;
       -ms-flex: 2;
           flex: 2;
 }
 
-section {
+body main section {
   max-width: 800px;
   margin: 50px auto;
 }
