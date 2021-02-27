@@ -2,7 +2,6 @@ var path = require('path')
 const express = require('express')
 const cors = require('cors')
 const node = require('node-fetch')
-const body = require('body-parser')
 const mockAPIResponse = require('./mockAPI.js')
 const dotenv = require('dotenv').config();
 const apikey = process.env.API_KEY
@@ -15,9 +14,13 @@ const api = new meaningCloud({
 
 const app = express()
 
-app.use(express.static('dist'))
+const bodyParser = require('body-parser')
+app.use(bodyParser.urlencoded({extended:false}))
+app.use(bodyParser.json())
+
+
 app.use(cors())
-app.use(body.json())
+app.use(express.static('dist'))
 
 app.get('/', function (req, res) {
     res.sendFile('dist/index.html')
@@ -32,3 +35,4 @@ app.listen(8080, function () {
 app.get('/test', function (req, res) {
     res.send(mockAPIResponse)
 })
+
