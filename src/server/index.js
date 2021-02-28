@@ -7,9 +7,6 @@ const dotenv = require('dotenv').config();
 const apikey = process.env.API_KEY
 const meaningCloud = require('meaning-cloud')
 
-const api_url = `https://api.meaningcloud.com/sentiment-2.1?key=${apikey}&url=${req.body.url}&lang=en`
-let response = await fetch(api_url)
-let data = await response.json()
 
 const app = express()
 
@@ -27,11 +24,22 @@ app.get('/', function (req, res) {
 })
 
 // designates what port the app will listen to for incoming requests
-app.listen(8080, function () {
-    console.log('Example app listening on port 8080!')
+app.listen(4000, function () {
+    console.log('Example app listening on port 4000!')
 })
 
 app.get('/test', function (req, res) {
     res.send(mockAPIResponse)
 })
 
+app.post('/test' , async function(req,res) {
+    const data = await fetch(`https://api.meaningcloud.com/sentiment-2.1?key=${apikey}&url=${req.body.url}&lang=en`)
+
+    try{
+        const mData = await data.json();
+        res.send(mData)
+        console.log(mData)
+    }catch(error){
+        console.log("error" , error)
+    }
+})
