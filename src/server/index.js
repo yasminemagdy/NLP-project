@@ -7,10 +7,9 @@ const dotenv = require('dotenv').config();
 const apikey = process.env.API_KEY
 const meaningCloud = require('meaning-cloud')
 
-console.log(`Your API key is ${apikey}`)
-const api = new meaningCloud({
-    application_key: apikey
-})
+const api_url = `https://api.meaningcloud.com/sentiment-2.1?key=${apikey}&url=${req.body.url}&lang=en`
+let response = await fetch(api_url)
+let data = await response.json()
 
 const app = express()
 
