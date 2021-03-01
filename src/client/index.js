@@ -9,5 +9,5 @@ import './styles/header.scss'
 
 console.log(checkForName , handleSubmit);
 
-
+export{checkForName , handleSubmit}
 console.log("CHANGE!!");
