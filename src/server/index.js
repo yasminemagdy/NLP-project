@@ -24,8 +24,8 @@ app.get('/', function (req, res) {
 })
 
 // designates what port the app will listen to for incoming requests
-app.listen(4000, function () {
-    console.log('Example app listening on port 4000!')
+app.listen(4040, function () {
+    console.log('Example app listening on port 4040!')
 })
 
 //app.get('/test', function (req, res) {
