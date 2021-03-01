@@ -28,9 +28,9 @@ app.listen(4000, function () {
     console.log('Example app listening on port 4000!')
 })
 
-app.get('/test', function (req, res) {
-    res.send(mockAPIResponse)
-})
+//app.get('/test', function (req, res) {
+  //  res.send(mockAPIResponse)
+//})
 
 app.post('/test' , async function(req,res) {
     const data = await fetch(`https://api.meaningcloud.com/sentiment-2.1?key=${apikey}&url=${req.body.url}&lang=en`)

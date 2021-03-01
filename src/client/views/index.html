@@ -33,6 +33,14 @@
         <footer>
             <p>This is a footer</p>
         </footer>
+        <script>
+            if('serviceWorker' in navigator){
+                window.addEventListener('load' , () => {
+                    navigator.serviceWorker.getRegistrations('/service-worker.js')
+                })
 
+            }
+        </script>
+ 
     </body>
 </html>
